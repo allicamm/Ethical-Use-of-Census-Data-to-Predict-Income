@@ -1,0 +1,11 @@
+"","race","sex","false positive rate"
+"1","Amer_Indian_Eskimo","Female",0
+"2","Amer_Indian_Eskimo","Male",0.0108695652173913
+"3","Asian_Pac_Islander","Female",0.0409356725146199
+"4","Asian_Pac_Islander","Male",0.0970873786407767
+"5","Black","Female",0.0120160213618158
+"6","Black","Male",0.0249687890137328
+"7","Other","Female",0.0222222222222222
+"8","Other","Male",0.0112359550561798
+"9","White","Female",0.00957496496964035
+"10","White","Male",0.0540426430230103
