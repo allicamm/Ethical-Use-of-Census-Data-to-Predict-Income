@@ -57,7 +57,7 @@ index_tbl <- by_race %>%
   pivot_wider(values_from = index, names_from = marital_status, values_fill = 0)
 
 # Finally write to csv to be used in deck 
-write.table(index_tbl, file = paste0('./', 'marital_status', '_index.csv'))
+write.table(index_tbl, file = paste0('./output/', 'marital_status', '_index.csv'))
 
 # Now do this for each variable in our most predictive variables
 for(i in seq_along(pred_var)){
@@ -89,7 +89,7 @@ for(i in seq_along(pred_var)){
     pivot_wider(values_from = index, names_from = !!pred_var[[i]], values_fill = 0)
   
   # Finally write to csv to be used in deck 
-  write.csv(index_tbl, file = paste0('./', quo_name(pred_var[[i]]), '_index.csv')) 
+  write.csv(index_tbl, file = paste0('./output/', quo_name(pred_var[[i]]), '_index.csv')) 
 } 
 
 # Let's also look at false negative rates by race
@@ -118,13 +118,13 @@ actual_v_predicted %>%
   mutate(sex = if_else(sex<1, 'Female', 'Male')) %>%
   group_by(race, sex) %>% 
   summarize(`false positive rate` = mean(income_flag == FALSE & pred == TRUE)) %>%
-  write.csv(file = './false_positives.csv') 
+  write.csv(file = './output/false_positives.csv') 
 
 # Also write out by just race 
 actual_v_predicted %>% 
   group_by(race) %>% 
   summarize(`false positive rate` = mean(income_flag == FALSE & pred == TRUE)) %>%
-  write.csv(file = './false_positives_race.csv')
+  write.csv(file = './output/false_positives_race.csv')
 # Whats our overall breakdown of target by race 
 actual_v_predicted %>% group_by(race) %>% summarize(mean(income_flag))
 
@@ -157,5 +157,5 @@ for(i in seq_along(pred_var)){
     mutate(index = perc_of_sex/perc)
   
   # Finally write to csv to be used in deck 
-  write.csv(index_tbl, file = paste0('./', quo_name(pred_var[[i]]), '_sex_index.csv')) 
+  write.csv(index_tbl, file = paste0('./output/', quo_name(pred_var[[i]]), '_sex_index.csv')) 
 } 

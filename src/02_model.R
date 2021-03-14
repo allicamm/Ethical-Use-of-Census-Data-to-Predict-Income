@@ -68,6 +68,7 @@ partial(model, train = training_final, pred.var = 'marital_status_Married_civ_sp
 # More likely if married to have over 50k
 
 # Capital Change
+# NOTE this is where pdf change in likelihood - age was saved from
 partial(model, train = training_final, pred.var = 'capital_change', plot = TRUE, grid.resolution = 50)
 # Least likely if you have capital change near 0 
 
@@ -76,6 +77,7 @@ partial(model, train = training_final, pred.var = 'education_num', plot = TRUE)
 # More education, more likely to be making more than 50k
 
 # Additionally take a look at age, which is in top 5 
+# NOTE this is where pdf change in likelihood - age was saved from
 partial(model, train = training_final, pred.var = 'age', plot = TRUE)
 # Large jump when you're over 30, levels off with age 
 
